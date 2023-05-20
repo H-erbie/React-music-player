@@ -1,0 +1,174 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+:root{
+  --transition: 0.5s ease;
+}
+body{
+  width: 100vw;
+  height: 100vh;
+  transition: 0.5s ease;
+  animation: changeBackground 3.5s ease infinite alternate;
+  overflow: hidden;
+}
+@keyframes changeBackground {
+  0%{
+    background: cornflowerblue;
+
+  }  
+  25%{
+    background: coral;
+  }
+  50%{
+    background-color: chartreuse;
+  }
+  75%{
+    background-color: darkorange;
+  }
+  100%{
+    background-color: pink;
+  }
+}
+.App{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+.seek-bar{
+  background: lightgray;
+  height: 5px;
+  border-radius: 1rem;
+  width: 0;
+}
+.song-length{
+  width:70%;
+  background-color: black;
+  height: 5px;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+.song-length-info{
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+}
+.hamburger{
+  position: fixed;
+  right: 1rem;
+  color: white;
+  z-index: 99;
+  font-size: 2rem;
+  top: 0.5rem;
+  display: none;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.player-container{
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  backdrop-filter: blur(8px);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+.btn{
+  border: none;
+  background-color: transparent;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.player-control{
+  font-size: 3rem;
+  color: white;
+}
+.song-thumbnail{
+  width: 50%;
+  height: 250px;
+  overflow: hidden;
+  animation: rotateImg 18.5s ease  infinite;
+  animation-delay: 0ms;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.song-thumbnail img{
+  width: 100%;
+}
+.controls{
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+.player-control:hover{
+  color: lightgray;
+}
+.playlist-container{
+  transition: var(--transition);
+  background-color: rgba(0,0,0,0.6);
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  width: 30%;
+  padding: 0.5rem;
+  gap: 2rem;
+  min-width: 300px;
+}
+.playlist-container h2{
+  color: lightgray;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.song-info{
+  display: flex;
+  gap: 2rem;
+  color: lightgray
+}
+.song{
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.1rem;
+  color: white;
+  background-color: rgba(0,0,0,0.4);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.song:hover{
+  background-color: rgba(0,0,0,0.2);
+  color: coral;
+}
+.active-song{
+  color: coral;
+}
+.songs{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  overflow-y: scroll;
+  height: 85vh;
+}
+@media screen and (max-width: 850px) {
+  .playlist-container{
+    position: fixed;
+    top: 0;
+    right: -100vw;
+  }
+  
+  .show-plays{
+    right: 0;
+  }
+  .hamburger{
+    display: block;
+  }
+}
